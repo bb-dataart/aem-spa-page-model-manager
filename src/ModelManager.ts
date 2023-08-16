@@ -227,6 +227,7 @@ export class ModelManager {
 
         let outResolve: () => void;
         const promise = new Promise(resolve => {
+            // @ts-ignore
             outResolve = resolve;
         });
 
@@ -652,9 +653,7 @@ export class ModelManager {
      * @returns true if remote app
      */
     public _isRemoteApp(): boolean {
-        const aemApiHost = this.modelClient.apiHost || '';
-
-        return (PathUtils.isBrowser() && aemApiHost.length > 0 && (PathUtils.getCurrentURL() !== aemApiHost));
+        return false;
     }
 }
 
